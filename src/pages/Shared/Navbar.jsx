@@ -38,7 +38,7 @@ const Navbar = () => {
                     {links}
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end gap-2">
               {
                 user ? <button onClick={handleSignOut} className='btn'>Sign Out</button> : 
                 <>
