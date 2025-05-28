@@ -2,15 +2,14 @@ import React, { Suspense } from 'react';
 import Banner from './Banner';
 import HotJobs from './HotJobs';
 import { div, span } from 'motion/react-client';
+import Loading from '../Shared/Loading';
 
 const jobsPromise = fetch('http://localhost:5000/jobs').then(res=>res.json());
 const Home = () => {
     return (
         <div>
           <Banner/> 
-          <Suspense fallback= {<div className='flex justify-center my-2'>
-            <span className="loading loading-bars loading-xl"></span>
-          </div>}>
+          <Suspense fallback= {<Loading/>}>
             <HotJobs jobsPromise ={jobsPromise}/>
           </Suspense>
         </div>

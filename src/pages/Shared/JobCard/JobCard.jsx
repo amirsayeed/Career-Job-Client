@@ -15,7 +15,7 @@ const JobCard = ({job}) => {
                         alt="Shoes" />
                 </figure>
                 <div>
-                    <h3 className="text-3xl">{company}</h3>
+                    <h3 className="text-2xl font-semibold">{company}</h3>
                     <p className='flex gap-1 items-center'> <FaMapMarkerAlt></FaMapMarkerAlt> {location}</p>
                 </div>
             </div>
