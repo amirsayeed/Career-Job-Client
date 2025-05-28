@@ -2,6 +2,8 @@ import React, { use } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../../contexts/AuthContext';
 import SocialLogin from '../Shared/SocialLogin';
+import Lottie from 'lottie-react';
+import register from '../../assets/register.json'
 
 const Register = () => {
     const {createUser} = use(AuthContext);
@@ -26,10 +28,10 @@ const Register = () => {
     return (
         <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
-          <div>
-            
+          <div className='text-center lg:text-left'>
+            <Lottie style={{width: '300px'}} animationData={register} loop={true}></Lottie>
           </div>
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl p-3">
             <div className="card-body">
             <h1 className="text-4xl font-bold">Register now!</h1>
               <form onSubmit={handleRegister} className='fieldset'>
