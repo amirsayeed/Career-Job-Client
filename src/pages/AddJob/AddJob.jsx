@@ -1,5 +1,7 @@
 import React from 'react';
 import useAuth from '../../Hooks/useAuth';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const AddJob = () => {
     const {user} = useAuth();
@@ -22,9 +24,26 @@ const AddJob = () => {
         const responsibilitiesClean = newJob.responsibilities.split(',').map(res=>res.trim());
         newJob.responsibilities = responsibilitiesClean;
         newJob.status = 'active';
-        console.log(newJob);
+        //console.log(newJob);
+
+        axios.post('http://localhost:5000/jobs',newJob)
+        .then(res=>{
+            console.log(res.data);
+            if(res.data.insertedId){
+                Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Your job has been added",
+                showConfirmButton: false,
+                timer: 1500
+                });
+            }
+        })
+        .catch(error=>{
+            console.log(error);
+        })
     }
-    
+
     return (
         <div>
             <h2 className="text-4xl">Add a job</h2>
