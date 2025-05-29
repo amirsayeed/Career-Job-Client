@@ -2,11 +2,33 @@ import React from 'react';
 import useAuth from '../../Hooks/useAuth';
 
 const AddJob = () => {
-    const {user} = useAuth()
+    const {user} = useAuth();
+
+    const handleAddJob = e =>{
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        //console.log(data);
+
+        const {min,max,currency,...newJob} = data;
+        newJob.salaryRange = {min,max,currency};
+
+        const requirementsString = newJob.requirements;
+        const requirementsDirty = requirementsString.split(',');
+        const requirementsClean = requirementsDirty.map(req=>req.trim());
+        newJob.requirements = requirementsClean;
+
+        const responsibilitiesClean = newJob.responsibilities.split(',').map(res=>res.trim());
+        newJob.responsibilities = responsibilitiesClean;
+        newJob.status = 'active';
+        console.log(newJob);
+    }
+    
     return (
         <div>
             <h2 className="text-4xl">Add a job</h2>
-            <form className='my-10'>
+            <form onSubmit={handleAddJob} className='my-10'>
                 <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-full border p-4">
                     <legend className="fieldset-legend">Basic Info</legend>
 
@@ -111,7 +133,8 @@ const AddJob = () => {
                     <input type="text" name='hr_name' className="input" placeholder="HR Name" />
 
                     <label className="label">HR Email</label>
-                    <input type="email" name='hr_email' className="input" placeholder="HR Email" />
+                    <input type="email" name='hr_email'
+                    defaultValue={user.email} className="input" placeholder="HR Email" />
                 </fieldset>
 
                 <input type="submit" className='btn' value="Add Job" />
