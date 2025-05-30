@@ -1,7 +1,6 @@
 import React, { Suspense } from 'react';
 import Banner from './Banner';
 import HotJobs from './HotJobs';
-import { div, span } from 'motion/react-client';
 import Loading from '../Shared/Loading';
 
 const jobsPromise = fetch('http://localhost:5000/jobs').then(res=>res.json());

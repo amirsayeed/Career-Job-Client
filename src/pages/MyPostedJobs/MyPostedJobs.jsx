@@ -1,8 +1,8 @@
 import React, { Suspense } from 'react';
 import Loading from "../Shared/Loading";
-import { jobsCreatedByPromise } from '../../api/jobsApi';
-import JobList from './JobList/JobList';
 import useAuth from '../../Hooks/useAuth';
+import JobList from './JobList';
+import { jobsCreatedByPromise } from '../../api/jobsApi';
 
 
 const MyPostedJobs = () => {
