@@ -7,11 +7,12 @@ import useAuth from '../../Hooks/useAuth';
 
 const MyApplications = () => {
     const {user} = useAuth();
+    //console.log(user.accessToken);
     return (
         <div>
             <ApplicationStats/>
             <Suspense fallback={<Loading/>}>
-                <ApplicationList myApplicationsPromise = {myApplicationsPromise(user.email)}/>
+                <ApplicationList myApplicationsPromise = {myApplicationsPromise(user.email,user.accessToken)}/>
             </Suspense>
         </div>
     );
