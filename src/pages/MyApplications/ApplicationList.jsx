@@ -3,7 +3,7 @@ import JobApplicationRow from './JobApplicationRow';
 
 const ApplicationList = ({myApplicationsPromise}) => {
     const myApplications = use(myApplicationsPromise);
-    console.log(myApplications);
+    //console.log(myApplications);
     return (
         <div className='my-10'>
             <h3 className="text-4xl font-bold">Jobs Applied So Far: {myApplications.length}</h3>

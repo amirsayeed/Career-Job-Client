@@ -35,7 +35,7 @@ const ViewApplications = () => {
                 <table className="table">
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>#</th>
                             <th>Name</th>
                             <th>Job</th>
                             <th>Status</th>
@@ -44,8 +44,8 @@ const ViewApplications = () => {
                     <tbody>
                          
                         {
-                            applications.map(application => <tr key={application._id}>
-                                <th>1</th>
+                            applications.map((application,idx) => <tr key={application._id}>
+                                <th>{idx+1}</th>
                                 <td>{application.applicant}</td>
                                 <td>Quality Control Specialist</td>
                                 <td>
