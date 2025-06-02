@@ -25,7 +25,7 @@ export const router = createBrowserRouter([
         },
         {
           path: '/jobs/:id',
-          loader: ({params})=> fetch(`http://localhost:5000/jobs/${params.id}`),
+          loader: ({params})=> fetch(`https://career-job-server.vercel.app/jobs/${params.id}`),
           hydrateFallbackElement: <Loading/>,
           Component: JobDetails
         },
@@ -48,7 +48,7 @@ export const router = createBrowserRouter([
         {
           path: 'applications/:job_id',
           element: <PrivateRoute><ViewApplications/></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/applications/job/${params.job_id}`),
+          loader: ({params}) => fetch(`https://career-job-server.vercel.app/applications/job/${params.job_id}`),
           hydrateFallbackElement: <Loading/>
         },
         {

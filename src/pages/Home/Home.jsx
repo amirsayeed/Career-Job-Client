@@ -3,7 +3,7 @@ import Banner from './Banner';
 import HotJobs from './HotJobs';
 import Loading from '../Shared/Loading';
 
-const jobsPromise = fetch('http://localhost:5000/jobs').then(res=>res.json());
+const jobsPromise = fetch('https://career-job-server.vercel.app/jobs').then(res=>res.json());
 const Home = () => {
     return (
         <div>

@@ -3,7 +3,7 @@ import axios from 'axios';
 import useAuth from './useAuth';
 
 const axiosInstance = axios.create({
- baseURL: 'http://localhost:5000'
+ baseURL: 'https://career-job-server.vercel.app'
 })
 
 const useAxiosSecure = () => {
